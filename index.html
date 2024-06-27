@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Tip calculator app</title>
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <img src="./images/logo.svg" alt="logo" class="logo" />
+    </header>
+    <main class="main">
+      <section class="first-section">
+        <h4 class="bill">Bill</h4>
+        <div class="input-container">
+          <img
+            src="./images/icon-dollar.svg"
+            alt="icon-dollar"
+            class="icon-dollar"
+            style="object-fit: contain"
+          />
+          <input type="text" class="input-bill" placeholder="0" />
+        </div>
+        <h4 class="tip-percentage-header">Select Tip %</h4>
+        <div class="percentage-selector">
+          <button class="btn-tip">5%</button>
+          <button class="btn-tip">10%</button>
+          <button class="btn-tip">15%</button>
+          <button class="btn-tip">25%</button>
+          <button class="btn-tip">50%</button>
+          <input class="percentage-input" type="text" placeholder="Custom" />
+        </div>
+        <h4 class="people-header">Number of People</h4>
+        <div class="people-amount-container">
+          <img
+            src="./images/icon-person.svg"
+            alt="icon-person"
+            class="icon-person"
+          />
+          <input type="number" class="people-input" placeholder="0" />
+        </div>
+      </section>
+      <section class="second-section">
+        <div class="tip-container">
+          <div class="tip-texts">
+            <h3 class="tip-amount">Tip Amount</h3>
+            <p class="tip-per-person">/ person</p>
+          </div>
+          <h2 class="actual-tip">$4.27</h2>
+        </div>
+        <div class="total-container">
+          <div class="total-texts">
+            <h3 class="total">Total</h3>
+            <p class="total-per-person">/ person</p>
+          </div>
+          <h2 class="actual-total">$32.79</h2>
+        </div>
+        <button class="reset-btn">RESET</button>
+      </section>
+    </main>
+  </body>
+</html>
