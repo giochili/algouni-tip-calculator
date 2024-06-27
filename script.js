@@ -1,7 +1,98 @@
-const bill = document.querySelector(".input-bill");
+const billValue = document.querySelector(".input-bill");
+const tipBtn = Array.from(document.getElementsByClassName("btn-tip"));
+const manualPercent = document.querySelector(".percentage-input");
+const peopleNum = document.querySelector(".people-input");
+const resetBtn = document.querySelector(".reset-btn");
+const tipContent = document.querySelector(".actual-tip");
+const totalContent = document.querySelector(".actual-total");
+const visitorContainer = document.querySelector(".people-amount-container");
+const warning = document.querySelector(".warning-para");
+const billContainer = document.querySelector(".input-container");
 
-let insertedBill;
-bill.addEventListener("input", () => {
-  insertedBill = bill.value;
-  console.log(insertedBill);
+let buttonPercentage;
+let bill;
+let visitor;
+let customPer;
+
+tipBtn.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    buttonPercentage = parseInt(event.target.textContent);
+    button.style.backgroundColor = "#9fe8df";
+    button.style.color = "#00474b";
+    calculate();
+  });
 });
+manualPercent.addEventListener("input", (event) => {
+  customPer = parseInt(event.target.value).toFixed(0);
+  if (customPer && customPer > 0) {
+    manualPercent.style.border = "solid 2px #26c2ae";
+  } else {
+    manualPercent.style.border = "none";
+  }
+  calculate();
+});
+billValue.addEventListener("input", (event) => {
+  bill = parseInt(event.target.value);
+
+  if (bill && bill > 0) {
+    billContainer.style.border = "solid 2px #26c2ae";
+  } else {
+    billContainer.style.border = "none";
+  }
+  calculate();
+});
+peopleNum.addEventListener("input", (event) => {
+  visitor = parseInt(event.target.value);
+  calculate();
+});
+function calculate() {
+  let tipPerPerson;
+  let totalPerPerson;
+  visitorChecker();
+  if (visitor <= 0) {
+    tipPerPerson = 0;
+    totalPerPerson;
+  } else {
+    if (isNaN(customPer) || customPer === 0) {
+      //   manualPercent.style.border = "none";
+      tipPerPerson = ((bill * buttonPercentage) / 100 / visitor).toFixed(2);
+      totalPerPerson = (parseFloat(tipPerPerson) + bill / visitor).toFixed(2);
+
+      if (!isNaN(tipPerPerson) && !isNaN(totalPerPerson)) {
+        tipContent.textContent = `$ ${tipPerPerson}`;
+        totalContent.textContent = `$ ${totalPerPerson}`;
+      }
+    } else {
+      let tipPerPerson = ((bill * customPer) / 100 / visitor).toFixed(2);
+      let totalPerPerson = (parseFloat(tipPerPerson) + bill / visitor).toFixed(
+        2
+      );
+
+      if (!isNaN(tipPerPerson) && !isNaN(totalPerPerson)) {
+        tipContent.textContent = `$ ${tipPerPerson}`;
+        totalContent.textContent = `$ ${totalPerPerson}`;
+      }
+    }
+  }
+}
+resetBtn.addEventListener("click", () => {
+  tipContent.textContent = `$ 0`;
+  totalContent.textContent = `$ 0`;
+  manualPercent.value = `0`;
+  visitor = 0;
+  bill = 0;
+  buttonPercentage = 0;
+  peopleNum.value = 0;
+  billValue.value = 0;
+});
+function visitorChecker() {
+  console.log(`before : ${visitor}`);
+  if (visitor <= 0) {
+    visitorContainer.style.border = "solid 2px #e17052";
+    warning.style.display = "block";
+  } else {
+    visitorContainer.style.border = "none";
+    warning.style.display = "none";
+  }
+  console.log(`after : ${visitor}`);
+}
