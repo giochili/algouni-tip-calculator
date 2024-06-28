@@ -26,7 +26,9 @@ tipBtn.forEach((button) => {
     buttonPercentage = parseInt(event.target.textContent);
     event.target.style.backgroundColor = "#9fe8df";
     event.target.style.color = "#00474b";
-
+    manualPercent.value = "";
+    manualPercent.style.border = "none";
+    customPer = 0;
     calculate();
   });
 });
