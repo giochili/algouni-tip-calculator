@@ -37,6 +37,10 @@ manualPercent.addEventListener("input", (event) => {
   } else {
     manualPercent.style.border = "none";
   }
+  tipBtn.forEach((button) => {
+    button.style.backgroundColor = "#00474b";
+    button.style.color = "#fff";
+  });
   calculate();
 });
 billValue.addEventListener("input", (event) => {
