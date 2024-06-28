@@ -14,11 +14,19 @@ let bill;
 let visitor;
 let customPer;
 
+let previousButton = null;
+
 tipBtn.forEach((button) => {
   button.addEventListener("click", (event) => {
+    if (previousButton) {
+      previousButton.style.backgroundColor = "";
+      previousButton.style.color = "";
+    }
+    previousButton = event.target;
     buttonPercentage = parseInt(event.target.textContent);
-    button.style.backgroundColor = "#9fe8df";
-    button.style.color = "#00474b";
+    event.target.style.backgroundColor = "#9fe8df";
+    event.target.style.color = "#00474b";
+
     calculate();
   });
 });
@@ -84,9 +92,10 @@ resetBtn.addEventListener("click", () => {
   buttonPercentage = 0;
   peopleNum.value = 0;
   billValue.value = 0;
+  manualPercent.style.border = "none";
+  billContainer.style.border = "none";
 });
 function visitorChecker() {
-  console.log(`before : ${visitor}`);
   if (visitor <= 0) {
     visitorContainer.style.border = "solid 2px #e17052";
     warning.style.display = "block";
@@ -94,5 +103,4 @@ function visitorChecker() {
     visitorContainer.style.border = "none";
     warning.style.display = "none";
   }
-  console.log(`after : ${visitor}`);
 }

@@ -30,7 +30,7 @@
             class="icon-dollar"
             style="object-fit: contain"
           />
-          <input type="text" class="input-bill" placeholder="0" />
+          <input type="text" maxlength="6" class="input-bill" placeholder="0" />
         </div>
         <h4 class="tip-percentage-header">Select Tip %</h4>
         <div class="percentage-selector">
@@ -39,7 +39,12 @@
           <button class="btn-tip">15%</button>
           <button class="btn-tip">25%</button>
           <button class="btn-tip">50%</button>
-          <input class="percentage-input" type="text" placeholder="Custom" />
+          <input
+            class="percentage-input"
+            type="text"
+            maxlength="4"
+            placeholder="Custom"
+          />
         </div>
         <h4 class="people-header">Number of People</h4>
         <div class="people-amount-container">
@@ -49,7 +54,12 @@
             alt="icon-person"
             class="icon-person"
           />
-          <input type="number" class="people-input" placeholder="0" />
+          <input
+            type="number"
+            class="people-input"
+            maxlength="4"
+            placeholder="0"
+          />
         </div>
       </section>
       <section class="second-section">
