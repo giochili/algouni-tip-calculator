@@ -92,14 +92,18 @@ function calculate() {
 resetBtn.addEventListener("click", () => {
   tipContent.textContent = `$ 0`;
   totalContent.textContent = `$ 0`;
-  manualPercent.value = `0`;
+  manualPercent.value = ``;
   visitor = 0;
   bill = 0;
   buttonPercentage = 0;
-  peopleNum.value = 0;
-  billValue.value = 0;
+  peopleNum.value = "";
+  billValue.value = "";
   manualPercent.style.border = "none";
   billContainer.style.border = "none";
+  tipBtn.forEach((button) => {
+    button.style.backgroundColor = "#00474b";
+    button.style.color = "#fff";
+  });
 });
 function visitorChecker() {
   if (visitor <= 0) {
