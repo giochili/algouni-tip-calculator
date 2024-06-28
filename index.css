@@ -270,3 +270,61 @@ body {
   background-color: #fff;
   border-radius: 25px 25px 0 0;
 }
+@media only screen and (min-width: 1440px) {
+  .header {
+    padding: 0;
+    margin-top: 163px;
+    margin-bottom: 87.9px;
+  }
+  .main {
+    display: flex;
+    padding: 32px;
+    border-radius: 25px;
+  }
+  .first-section {
+    width: 379px;
+    margin: 13px 48px 16px 16px;
+    padding: 0;
+  }
+  .input-container {
+    padding: 6px 17px 6px 19.3px;
+    margin-bottom: 40px;
+  }
+  .input-bill {
+    width: 50%;
+  }
+  .percentage-selector {
+    grid-template-columns: repeat(3, 117px);
+    grid-template-rows: repeat(2, 48px);
+    column-gap: 14px;
+    row-gap: 16px;
+    margin-bottom: 40px;
+  }
+  .percentage-input {
+    padding: 6px 15px 6px 14px;
+  }
+  .people-input {
+    width: 50%;
+  }
+  .second-section {
+    margin: 0;
+    width: 413px;
+    padding: 40px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+  }
+  .tip-container {
+    margin-bottom: 25px;
+  }
+  .actual-tip {
+    font-size: 48px;
+  }
+  .actual-total {
+    font-size: 48px;
+  }
+  .reset-btn {
+    padding: 12.5px 40px 12.5px 37px;
+    border-radius: 5px;
+  }
+}
