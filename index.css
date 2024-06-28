@@ -265,6 +265,10 @@ body {
   color: #00474b;
   width: 100%;
 }
+.reset-btn:hover {
+  background-color: #9fe8df;
+  cursor: pointer;
+}
 .main {
   box-shadow: 0 32px 43px 0 rgba(79, 166, 175, 0.2);
   background-color: #fff;
