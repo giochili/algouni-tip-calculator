@@ -33,30 +33,57 @@ tipBtn.forEach((button) => {
   });
 });
 manualPercent.addEventListener("input", (event) => {
-  customPer = parseInt(event.target.value).toFixed(0);
+  // Use a regular expression to filter out non-numeric characters
+  let value = event.target.value.replace(/[^0-9]/g, "");
+
+  // Update the input field with the filtered value
+  event.target.value = value;
+
+  // Convert the filtered value to an integer and round it
+  customPer = parseInt(value).toFixed(0);
+
   if (customPer && customPer > 0) {
     manualPercent.style.border = "solid 2px #26c2ae";
   } else {
     manualPercent.style.border = "none";
   }
+
   tipBtn.forEach((button) => {
     button.style.backgroundColor = "#00474b";
     button.style.color = "#fff";
   });
+
   calculate();
 });
+
 billValue.addEventListener("input", (event) => {
-  bill = parseInt(event.target.value);
+  // Use a regular expression to filter out non-numeric characters
+  let value = event.target.value.replace(/[^0-9]/g, "");
+
+  // Update the input field with the filtered value
+  event.target.value = value;
+
+  // Convert the filtered value to an integer
+  bill = parseInt(value);
 
   if (bill && bill > 0) {
     billContainer.style.border = "solid 2px #26c2ae";
   } else {
     billContainer.style.border = "none";
   }
+
   calculate();
 });
 peopleNum.addEventListener("input", (event) => {
-  visitor = parseInt(event.target.value);
+  // Use a regular expression to filter out non-numeric characters
+  let value = event.target.value.replace(/[^0-9]/g, "");
+
+  // Update the input field with the filtered value
+  event.target.value = value;
+
+  // Convert the filtered value to an integer
+  visitor = parseInt(value);
+
   calculate();
 });
 function calculate() {

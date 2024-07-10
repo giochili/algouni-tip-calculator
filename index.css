@@ -97,6 +97,9 @@ body {
   font-family: "Space Mono", monospace;
   color: #fff;
 }
+input {
+  outline: none;
+}
 .btn-tip:hover {
   background-color: #26c2ae;
   cursor: pointer;
